@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Task( {chord, switchChord, soundChord} ) {
+export default function Chord( {chord, switchChord, soundChord} ) {
   
   function handleNextClick() {
     switchChord(chord.name)
@@ -11,7 +11,7 @@ export default function Task( {chord, switchChord, soundChord} ) {
   }
   
   return (
-    <div id = {chord.name} style={{visibility: hidden}}>
+    <div id = {chord.name} style={{visibility: 'hidden'}}>
         <button onClick={handleSoundClick}>Sound Chord</button>
         <button onClick={handleNextClick}>Next <i class="fa-solid fa-arrow-right"></i></button>
     </div>
