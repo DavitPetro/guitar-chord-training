@@ -15,7 +15,7 @@ export default function Chord( {chord, switchChord, soundChord} ) {
   return (
     <div id = {chord.name} style={{visibility: 'hidden'}}>
         <button onClick={handleSoundClick}>Sound Chord</button>
-        <button onClick={handleNextClick}>Next<FontAwesomeIcon icon="faArrowRight" /></button>
+        <button onClick={handleNextClick}>Next<FontAwesomeIcon icon={faArrowRight} /></button>
     </div>
   )
 }
