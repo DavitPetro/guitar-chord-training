@@ -1,5 +1,5 @@
 import React from 'react'
-import Chords from './Chord'
+import Chord from './Chord'
 
 function OpenChords ( {chords, switchChord, soundChord} ) {
     return (

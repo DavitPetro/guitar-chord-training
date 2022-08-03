@@ -1,4 +1,6 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'
 
 export default function Chord( {chord, switchChord, soundChord} ) {
   
@@ -13,7 +15,7 @@ export default function Chord( {chord, switchChord, soundChord} ) {
   return (
     <div id = {chord.name} style={{visibility: 'hidden'}}>
         <button onClick={handleSoundClick}>Sound Chord</button>
-        <button onClick={handleNextClick}>Next <i class="fa-solid fa-arrow-right"></i></button>
+        <button onClick={handleNextClick}>Next<FontAwesomeIcon icon="faArrowRight" /></button>
     </div>
   )
 }
