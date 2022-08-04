@@ -10,12 +10,16 @@ function App() {
 
   var openChordNames = ["A", "Am", "C", "D", "Dm", "E", "Em", "G"]
 
-  function switchChord(name) {
-    //const chord = openChordNames.find(chord => chord === name)
+  function startOpenChords() {
+    var aChord = document.getElementById("A")
+    aChord.style.display = "block"
+  }
+
+  function switchOpenChord(name) {
+    const chord = openChordNames.find(chord => chord === name)
   }
 
   function soundChord(name) {
-
   }
 
   return ( 
@@ -23,11 +27,11 @@ function App() {
       <div id="header">
         <h1>Practice <FontAwesomeIcon icon={faGuitar} /></h1>
       </div>
-      <button className="btn">Open Chords</button>
+      <button className="menu-btn btn" onClick={startOpenChords}>Open Chords</button>
       <div id="open-chords">
-        <OpenChordList chords={openChordNames} switchChord={switchChord} soundChord={soundChord} />
+        <OpenChordList chords={openChordNames} switchOpenChord={switchOpenChord} soundChord={soundChord} />
       </div>
-      <button className="btn">Suspended Chords</button>
+      <button className="menu-btn btn">Suspended Chords</button>
     </div>
   )
 }
