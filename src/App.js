@@ -25,7 +25,7 @@ function App() {
    */
   function startOpenChords() {
     document.getElementById("open-chord-btn").style.display = "none"
-    document.getElementById("sus-chord-btn").style.display = "none"
+    document.getElementById("barre-chord-btn").style.display = "none"
     var rand = randomInteger(0, 7)
     var chord = document.getElementById(openChordNames[rand])
     chord.style.display = "block"
@@ -45,6 +45,10 @@ function App() {
   }
 
   function soundChord(name) {
+    const chordSound = name + "Sound"
+    const audio = document.getElementById(chordSound)
+    console.log(audio)
+    audio.play()
   }
 
   function exitChord(name) {
@@ -63,7 +67,7 @@ function App() {
                        soundChord={soundChord}
                        exitChord={exitChord} />
       </div>
-      <button id="sus-chord-btn" className="menu-btn btn">Suspended Chords</button>
+      <button id="barre-chord-btn" className="menu-btn btn">Barre Chords</button>
     </div>
   )
 }
