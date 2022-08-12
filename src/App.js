@@ -6,14 +6,15 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGuitar } from '@fortawesome/free-solid-svg-icons'
-import OpenChordList from './components/OpenChordList';
+import { faGithub } from '@fortawesome/free-brands-svg-icons'
+import ChordList from './components/ChordList';
 
 
 
 function App() {
 
-  // Store The names of all open chords
-  var openChordNames = ["A", "Am", "C", "D", "Dm", "E", "Em", "G", "F"]
+  // Store The names of all  chords
+  var chordNames = ["A", "Am", "C", "D", "Dm", "E", "Em", "G", "F"]
   // Store the name of the currently displayed chord
   var [currentChord, setCurrentChord] = useState();
 
@@ -25,24 +26,24 @@ function App() {
   }
 
   /*
-   * Starts practice for open chords, picking a random chord using the number generator function
+   * Starts practice for the chords, picking a random chord using the number generator function
    */
-  function startOpenChords() {
-    document.getElementById("open-chord-btn").style.display = "none"
-    document.getElementById("barre-chord-btn").style.display = "none"
+  function startChords() {
+    document.getElementById("play-btn").style.display = "none"
+    document.getElementById("info-card").style.display = "none"
     var rand = randomInteger(0, 8)
-    var chord = document.getElementById(openChordNames[rand])
+    var chord = document.getElementById(chordNames[rand])
     chord.style.display = "block"
     setCurrentChord(chord)
   }
 
-  function switchOpenChord(name) {
+  function switchChord(name) {
     var rand = randomInteger(0, 8)
     // If we're getting the same chord name as before, randomize until the names are different
-    while(openChordNames[rand] === currentChord.id) {
+    while(chordNames[rand] === currentChord.id) {
       rand = randomInteger(0, 8)
     }
-    var nextChord = document.getElementById(openChordNames[rand])
+    var nextChord = document.getElementById(chordNames[rand])
     currentChord.style.display = "none"
     nextChord.style.display = "block"
     setCurrentChord(nextChord)
@@ -57,6 +58,8 @@ function App() {
 
   function exitChord(name) {
     currentChord.style.display = "none"
+    document.getElementById("play-btn").style.display = "inline"
+    document.getElementById("info-card").style.display = "block"
   }
 
   return ( 
@@ -64,14 +67,23 @@ function App() {
       <div id="header">
         <h1>Practice <FontAwesomeIcon icon={faGuitar} /></h1>
       </div>
-      <button id="open-chord-btn" className="menu-btn btn mb-2" onClick={startOpenChords}>Open Chords</button>
-      <div id="open-chords">
-        <OpenChordList chords={openChordNames} 
-                       switchOpenChord={switchOpenChord} 
+      <button id="play-btn" className="menu-btn btn mb-2" onClick={startChords}>Play Chords</button>
+      <div id="chords-list">
+        <ChordList chords={chordNames} 
+                       switchChord={switchChord} 
                        soundChord={soundChord}
                        exitChord={exitChord} />
       </div>
-      <button id="barre-chord-btn" className="menu-btn btn">Barre Chords</button>
+      <div id="info-card" className="card text-bg-dark">
+          <h3 className="card-header">Guitar Chord Training App</h3>
+          <div className="card-body">
+              <p>This program is a tool to help one improve their skill and knowledge around various guitar chords. 
+                The chords included in the program are the basic chord shapes defined at the first fret of the guitar.
+                Thus, it is intended for early beginners.</p>
+                <p>The program using the Bootstrap framework for the front-end design, as well as React for more front-end and back-end support.</p>
+                <a href="https://github.com/DavitPetro" className="btn btn-info" role="button" target="_blank" rel="noreferrer">My Github Page <FontAwesomeIcon icon={faGithub} /></a>
+          </div>
+      </div>
     </div>
   )
 }

@@ -47,6 +47,11 @@ img {
   color: white;
 }
 
+.card {
+  opacity: 75%;
+  text-align: left;
+}
+
 .chord-comp {
   margin: 25px;
   padding: 25px;
