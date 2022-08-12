@@ -1,3 +1,9 @@
+/*
+    Filename: OpenChord.js
+    Author: Davit Petrosyan
+    Description: Open chord component. 
+*/
+
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'

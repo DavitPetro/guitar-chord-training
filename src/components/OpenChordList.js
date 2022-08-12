@@ -1,3 +1,9 @@
+/*
+    Filename: OpenChordList.js
+    Author: Davit Petrosyan
+    Description: Open chord list component. 
+*/
+
 import React from 'react'
 import OpenChord from './OpenChord'
 

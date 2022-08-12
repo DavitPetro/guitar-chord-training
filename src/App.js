@@ -1,4 +1,8 @@
-/*Script file for the To-do list*/
+/*
+    Filename: App.js
+    Author: Davit Petrosyan
+    Description: Main logical component of the guitar chord practice application.
+*/
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGuitar } from '@fortawesome/free-solid-svg-icons'
@@ -9,7 +13,7 @@ import OpenChordList from './components/OpenChordList';
 function App() {
 
   // Store The names of all open chords
-  var openChordNames = ["A", "Am", "C", "D", "Dm", "E", "Em", "G"]
+  var openChordNames = ["A", "Am", "C", "D", "Dm", "E", "Em", "G", "F"]
   // Store the name of the currently displayed chord
   var [currentChord, setCurrentChord] = useState();
 
@@ -26,17 +30,17 @@ function App() {
   function startOpenChords() {
     document.getElementById("open-chord-btn").style.display = "none"
     document.getElementById("barre-chord-btn").style.display = "none"
-    var rand = randomInteger(0, 7)
+    var rand = randomInteger(0, 8)
     var chord = document.getElementById(openChordNames[rand])
     chord.style.display = "block"
     setCurrentChord(chord)
   }
 
   function switchOpenChord(name) {
-    var rand = randomInteger(0, 7)
+    var rand = randomInteger(0, 8)
     // If we're getting the same chord name as before, randomize until the names are different
     while(openChordNames[rand] === currentChord.id) {
-      rand = randomInteger(0, 7)
+      rand = randomInteger(0, 8)
     }
     var nextChord = document.getElementById(openChordNames[rand])
     currentChord.style.display = "none"
